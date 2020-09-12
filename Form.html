@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка</title>
+    <link rel="stylesheet" href="../themes/pandoroom/css/form.css">
+    <link rel="stylesheet" href="../themes/pandoroom/css/main.css">
+</head>
+
+<body>
+    
+    <!-- Создаём форму и указываем её обработчик и метод -->
+<form action="http://mihailmaximov.ru/projects/mail/post.php" method="post" name="form">
+    <!-- Поле ввода имени -->
+    <input name="name" type="text" placeholder="Ваше имя" />
+    <br>
+    <!-- Поле ввода почты  -->
+    <input name="emailad" type="text" placeholder="Ваша почта" />
+    <br>
+    <!-- Поле ввода для темы сообщения -->
+    <input size="30" name="phone" type="text" placeholder="Телефон" />
+    <br>
+    <!-- Текстовое поле для самого сообщения -->
+    <textarea cols="32" name="message" rows="5"> Текст сообщения
+    </textarea>
+    <br>
+    <!-- Кнопка с надписью «Отправить», которая запускает обработчик формы -->
+    <input type="submit" value="Отправить" />
+  </form>
+<!-- Через 10 секунд после появления сообщения об отправке или ошибке — отправляемся на сайт Кода :) -->
+
+<!-- Начался блок PHP -->
+<?php
+// Получаем значения переменных из пришедших данных
+$name = $_POST['name'];
+$email = $_POST['mihauman1313@gmail.com'];
+$emailad = $_POST[''];
+$phone = $_POST['phone'];
+$message = $_POST['message'];
+// Формируем сообщение для отправки, в нём мы соберём всё, что ввели в форме
+$mes = "Имя: $name \nE-mail: $email \nТелефон: $phone \nТекст: $message";
+// Пытаемся отправить письмо по заданному адресу
+// Если нужно, чтобы письма всё время уходили на ваш адрес — замените первую переменную $email на свой адрес электронной почты
+$send = mail($email, $phone, $mes, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
+// Если отправка прошла успешно — так и пишем
+if ($send == 'true') {echo "Сообщение отправлено";}
+// Если письмо не ушло — выводим сообщение об ошибке
+else {echo "Ой, что-то пошло не так";}
+?>
+
+</body>
+</html>
