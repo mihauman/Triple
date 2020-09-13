@@ -5,49 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заявка</title>
     <link rel="stylesheet" href="../themes/pandoroom/css/form.css">
-    <link rel="stylesheet" href="../themes/pandoroom/css/main.css">
 </head>
 
 <body>
     
-    <!-- Создаём форму и указываем её обработчик и метод -->
-<form action="http://mihailmaximov.ru/projects/mail/post.php" method="post" name="form">
-    <!-- Поле ввода имени -->
-    <input name="name" type="text" placeholder="Ваше имя" />
-    <br>
-    <!-- Поле ввода почты  -->
-    <input name="emailad" type="text" placeholder="Ваша почта" />
-    <br>
-    <!-- Поле ввода для темы сообщения -->
-    <input size="30" name="phone" type="text" placeholder="Телефон" />
-    <br>
-    <!-- Текстовое поле для самого сообщения -->
-    <textarea cols="32" name="message" rows="5"> Текст сообщения
-    </textarea>
-    <br>
-    <!-- Кнопка с надписью «Отправить», которая запускает обработчик формы -->
-    <input type="submit" value="Отправить" />
-  </form>
-<!-- Через 10 секунд после появления сообщения об отправке или ошибке — отправляемся на сайт Кода :) -->
-
-<!-- Начался блок PHP -->
-<?php
-// Получаем значения переменных из пришедших данных
-$name = $_POST['name'];
-$email = $_POST['mihauman1313@gmail.com'];
-$emailad = $_POST[''];
-$phone = $_POST['phone'];
-$message = $_POST['message'];
-// Формируем сообщение для отправки, в нём мы соберём всё, что ввели в форме
-$mes = "Имя: $name \nE-mail: $email \nТелефон: $phone \nТекст: $message";
-// Пытаемся отправить письмо по заданному адресу
-// Если нужно, чтобы письма всё время уходили на ваш адрес — замените первую переменную $email на свой адрес электронной почты
-$send = mail($email, $phone, $mes, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
-// Если отправка прошла успешно — так и пишем
-if ($send == 'true') {echo "Сообщение отправлено";}
-// Если письмо не ушло — выводим сообщение об ошибке
-else {echo "Ой, что-то пошло не так";}
-?>
+    <div id="modalContainer" style="background-color: rgb(50, 50, 50);">
+            <div id="modalContainerMask" style="transform-origin: 50% 0% 0px; transform: matrix(1, 0, 0, 0, 0, 0);"></div>
+            <div id="modalContent" style="visibility: inherit; opacity: 1;">
+				<span style="color:red; font-size: 15px;" id="modalContentIntro">
+					Обращаем Ваше внимание, что для участия в игре Вам необходима удобная одежда и обувь, которую не страшно испачкать!!! ( В процессе игры Вы можите незначительно испачкаться )!!!
+				</span>
+				<br><br>
+                <span id="modalContentIntro">
+                    Для того чтобы забронировать игру, заполните короткую форму ниже.
+                </span>
+                <span class="questNameBook">
+                    Квест: <span id="form_location">Сумеречный синдром</span>
+                </span>
+                <span class="bookDateTime">
+                    <span id="form_time">18 сентября 2020г. в  15:15</span>
+                    <br>Стоимость: <span class="color"><strong id="form_price">1000</strong><strong id="form_plus"></strong> грн.</span>
+                </span><input type="text" id="get_param" hidden=""><input type="text" id="data_id" hidden="">
+            <input type="text" id="addeduser" value="" hidden="">
+                <form id="bookInfoForm" name="bookInfo" action="#" enctype="text/plain" autocomplete="on">
+                    <input type="text" value="" class="input" id="reg_name" name="r_name" placeholder="имя"> 
+                    <input type="text" name="lastname" placeholder="фамилия" style="float: right;">
+                    <input type="text" value="" class="input" id="reg_phone" name="r_phone" placeholder="телефон">
+                    <input type="text" value="" class="input" id="reg_email" name="r_email" placeholder="e-mail" style="float: right;">
+                    <input type="text" value="" class="input" id="reg_kol" onchange="calculate(this.value)" onkeyup="calculate(this.value)" onfocusout="calculate(this.value)" onactivate="calculate(this.value)" ondeactivate="calculate(this.value)" name="r_kol" placeholder="количество участников" style="float: right;">
+                    <textarea name="comment" placeholder="комментарий"></textarea>
+                    <!-- <input type="submit" id="btnSubmit" name="book" value="ЗАБРОНИРОВАТЬ" style="clear: left;">
+                    <input type="button" id="btnCancel" name="cancel" value="ОТМЕНИТЬ" style="float: right;"> -->
+                </form>
+                <div id="btnSubmit" class="btnModal">
+                <!-- yaCounter39216720.reachGoal('LeadSyndrom'); -->
+                    <span class="btnModalTitle" onclick="CheckAddForm();" id="22booking_confirm">Отправить</span><a href="#" id="booking_confirm"></a>
+                    <span class="btnModalBg" style="transform-origin: 50% 100% 0px; transform: matrix(1, 0, 0, 0, 0, 0);"></span>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
