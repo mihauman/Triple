@@ -149,80 +149,6 @@ div#header {
 				</a>
 			</div>
 		</div>
-
-
-<!-- ======================================================================================== -->
-<!-- Modal window -->
-<!-- ======================================================================================== -->
-
-	<script type="text/javascript">
-function calculate(kol) {
-	
-	var quest = $('#form_location').html();
-	console.log(quest);
-	
-	if(quest.indexOf('13') + 1) {
-		//console.log('yes');
-		var sum = 250;
-	}else{
-		//console.log('no');
-		var sum = 200;
-	}
-
-
-	var kol = parseFloat(kol);
-	if(kol >= 5){
-		var kol = kol-4;
-		var itogo = kol*sum;
-		$('#form_plus').html( '+'+itogo.toFixed(0) );
-	}else{
-		$('#form_plus').html(' ');
-	}
-}
-</script>
-    <div id="modalWrapper">
-        <div id="user_logged_in" data="#"></div>
-        <!--<div id="last_clicked_time" data="111.html" data-time="111" data-id="111"></div>-->
-        <div id="last_clicked_time" data="" data-time="" data-id=""></div>
-        <div id="modalContainer">
-            <div id="modalContainerMask"></div>
-            <div id="modalContent">
-				<span style="color:blue; font-size: 15px;" id="modalContentIntro">
-					Обращаем Ваше внимание, что для участия в игре Вам необходима удобная одежда и обувь, которую не страшно испачкать. ( В процессе игры Вы можите незначительно испачкаться )
-				</span>
-				<br/><br/>
-                <span id="modalContentIntro">
-                    Для того чтобы забронировать игру, заполните короткую форму ниже.
-                </span>
-                <span class="questNameBook">
-                    Квест: <span id="form_location"></span>
-                </span>
-                <span class="bookDateTime">
-                    <span id="form_time" ></span>
-                    <br />Стоимость: <span class="color"><strong id="form_price"></strong><strong id="form_plus"></strong> грн.</span>
-                </span><input type="text" id="get_param" hidden><input type="text" id="data_id" hidden>
-            <input type="text" id="addeduser" value="" hidden>
-                <form id="bookInfoForm" name="bookInfo" action="index.html" enctype="text/plain" autocomplete="on">
-                    <input type="text" value="" class="input" id="reg_name" name="r_name" placeholder="имя" > 
-                    <input type="text" name="lastname" placeholder="фамилия" style="float: right;">
-                    <input type="text" value=""  class="input" id="reg_phone" name="r_phone" placeholder="телефон">
-                    <input type="text" value="" class="input" id="reg_email" name="r_email" placeholder="e-mail" style="float: right;">
-                    <input type="text" value="" class="input" id="reg_kol" onchange="calculate(this.value)" onkeyup="calculate(this.value)" onfocusout="calculate(this.value)" onactivate="calculate(this.value)" ondeactivate="calculate(this.value)" name="r_kol" placeholder="количество участников" style="float: right;">
-                    <textarea name="comment" placeholder="комментарий"></textarea>
-                    <input type="button" id="btnCancel" name="cancel" value="ОТМЕНИТЬ" style="float: right;"> -->
-                </form>
-                <div id="btnSubmit" class="btnModal">
-                <!-- yaCounter39216720.reachGoal('Coffe'); -->
-                    <span class="btnModalTitle" onclick="CheckAddForm();" id="22booking_confirm">Отправить</span><a href="index.html" id="booking_confirm"></a>
-                    <span class="btnModalBg"></span>
-                </div>
-                <div id="btnCancel" class="btnModal" style="float: right;">
-                    <span class="btnModalTitle">Отменить</span>
-                    <span class="btnModalBg"></span>
-                </div>
-            </div>
-        </div>
-    </div>
 <!-- ======================================================================================== -->
 <!-- Full image -->
 <!-- ======================================================================================== -->
@@ -273,16 +199,6 @@ function calculate(kol) {
 		<div id="headerBg" style="background-image:url('/img/fon.png')" class="clearfix">
 
 		</div>
-	</div>
-
-<!-- ======================================================================================== -->
-<!-- Form -->
-<!-- ======================================================================================== -->
-
-    
-	<div id="Form">
-		
-	 
 	</div>
 
 <!-- ======================================================================================== -->
@@ -453,7 +369,7 @@ function calculate(kol) {
 </div> <!-- End of main container -->
 
 	
-	﻿        <div style="display:none;" id="delete_booking" class="confirm_booking">
+	        <div style="display:none;" id="delete_booking" class="confirm_booking">
             <form method="post" class="reg_form">
           <p style="padding:30px;" align="center">Вы действительно хотите<BR/>отменить сеанс?<BR/><BR/><a href="https://royalquest.com.ua/index2417.html?unset=&amp;sing=&amp;confirm=yes">Да, отменить!</a></p>
             </form>
